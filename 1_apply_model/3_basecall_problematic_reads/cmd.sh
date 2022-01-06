@@ -1,0 +1,1 @@
+nohup bash -c "fast5_subset -i /homes6/kartong/kartong/data/chm13_nanopore/fast5/promethion_data_ucdavis/226/UCD/raw/chm13_promethion_run2/reads -s /homes6/kartong/code/telomere_basecalling/apply_model/3_basecall_problematic_reads/ -l /homes6/kartong/code/telomere_basecalling/apply_model/2_identify_problematic_reads/test.repeatcounts.filtered.readname --recursive" &
