@@ -47,7 +47,7 @@ This step generates the unmodified data needed for generating new training data.
 
 To apply this step, run the following command:
 ```
-perl main.pl <fast5_of_reads_from_telomeres> <original_bonito_model> <output_label> <reference_genome_fasta>
+perl main.pl <fast5_of_reads_from_telomeres> <original_bonito_model> <training_data_output_label> <reference_genome_fasta>
 ```
 
 ### 2. modify_training_data
@@ -55,7 +55,7 @@ This step modifies the training data (chunks.npy) using the ground truth data. T
 
 To apply this step, run the following command:
 ```
-perl main.pl
+perl main.pl <training_data_label>
 ```
 
 ### 3. train_model
@@ -63,7 +63,7 @@ This step retrains the bonito basecalling model with a low learning rate. A new 
 
 To apply this step, run the following command:
 ```
-perl main.pl
+perl main.pl <original_basecalling_model> <training_data_directory> <tuned_model_name>
 ```
 
 

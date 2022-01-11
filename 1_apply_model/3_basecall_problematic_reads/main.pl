@@ -15,7 +15,7 @@ my $output_fastagz 		= $ARGV[3];
 
 
 # Extract the fast5 files required
-#system("fast5_subset -i $fast5_directory -s $required_fast5_directory -l $required_readnames --recursive");
+system("fast5_subset -i $fast5_directory -s $required_fast5_directory -l $required_readnames --recursive");
 
 
 # Basecall problematic reads with bonito
