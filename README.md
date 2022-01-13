@@ -10,7 +10,7 @@ There are a series of four steps to apply the tuned basecalling model to the tel
 
 
 ### 1. bonito_basecalling_model
-This directory contains the tuned basecalling model for bonito. The model can be downloaded from the following path (https://zenodo.org/api/files/86cb9586-300f-493d-b9c4-0ab2f2848e3c/chm13_nanopore_trained_run225.zip) and unzip into this folder.
+This directory contains the tuned basecalling model for bonito. The model can be downloaded from the following path (https://zenodo.org/record/5819148/files/chm13_nanopore_trained_run225.zip?download=1) and unzip into this folder.
 
 
 ### 2. identify_problematic_reads
