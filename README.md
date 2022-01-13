@@ -24,6 +24,8 @@ perl main.pl <input_fasta> <output_label>
 ### 3. basecall_problematic_reads
 This directory contains a set of scripts to extract the fast5 for the required reads. Subsequent to that, we will basecall these reads using the tuned bonito model.
 
+Note that fast5_subset from https://github.com/nanoporetech/ont_fast5_api is required to run this step. Also note that the extraction of the desired reads with fast5_subset can take some time.
+
 To apply this step, run the following command:
 ```
 perl main.pl <directory_of_all_fast5_files> <file_of_readnames_for_required_reads> <directory_to_output_extracted_fast5> <output_fastagz_file>
