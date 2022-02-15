@@ -21,7 +21,7 @@ close($FIXED_READS);
 
 
 
-open(my $ORIGINAL_READS, "|-", "zcat $rebasecalled_fasta") || die $!;
+open(my $ORIGINAL_READS, "|-", "zcat $original_fasta") || die $!;
 while(my $readname = <$ORIGINAL_READS>){
 	chomp($readname);
 	my $readname_clean = substr($readname, 1);
