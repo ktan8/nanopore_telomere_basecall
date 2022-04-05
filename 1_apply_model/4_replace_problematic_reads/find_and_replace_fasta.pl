@@ -8,7 +8,7 @@ my $rebasecalled_fasta 	= $ARGV[1];
 #my $fixed_fasta		= 
 
 
-open(my $FIXED_READS, "-|", "zcat $rebasecalled_fasta") || die $!;
+open(my $FIXED_READS, "-|", "zcat -f $rebasecalled_fasta") || die $!;
 my %fixed_reads_hash;
 while(my $readname = <$FIXED_READS>){
 	chomp($readname);
@@ -21,7 +21,7 @@ close($FIXED_READS);
 
 
 
-open(my $ORIGINAL_READS, "-|", "zcat $original_fasta") || die $!;
+open(my $ORIGINAL_READS, "-|", "zcat -f $original_fasta") || die $!;
 while(my $readname = <$ORIGINAL_READS>){
 	chomp($readname);
 	my $readname_clean = substr($readname, 1);
