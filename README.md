@@ -8,6 +8,14 @@ This package contains of two parts. The first part is the pipeline for retrainin
 
 There are a series of four steps to apply the tuned basecalling model to the telomeric nanopore reads. These steps and the corresponding scripts can be found in the following directories.
 
+### Dependencies
+To apply the bonito basecalling model, you will need the following software in your environment.
+1. Python
+2. Perl
+3. fast5_subset (included as part of the ont_fast5_api package at https://github.com/nanoporetech/ont_fast5_api)
+4. Bonito basecaller (current pipeline was tested on Bonito v0.3.5 which can be obtained from https://github.com/nanoporetech/bonito/releases)
+5. Samtools (http://www.htslib.org/)
+
 
 ### 1. bonito_basecalling_model
 This directory contains the tuned basecalling model for bonito. The model can be downloaded from the following path (https://zenodo.org/record/5819148/files/chm13_nanopore_trained_run225.zip?download=1) and unzip into this folder.
