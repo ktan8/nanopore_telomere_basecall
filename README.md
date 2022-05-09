@@ -13,7 +13,7 @@ To apply the bonito basecalling model, you will need the following software in y
 1. Python
 2. Perl
 3. fast5_subset (included as part of the ont_fast5_api package at https://github.com/nanoporetech/ont_fast5_api)
-4. Bonito basecaller (current pipeline was tested on Bonito v0.3.5 which can be obtained from https://github.com/nanoporetech/bonito/releases)
+4. Bonito basecaller (current pipeline was tested on Bonito v0.3.5 which can be obtained from https://github.com/nanoporetech/bonito/releases). Please also ensure that the Bonito basecaller is working before applying this pipeline as Bonito is dependent on a number of other packages (e.g. CuPy, CUDA, etc.). Please refer to the Bonito repository for detailed information on the required packages.
 5. Samtools (http://www.htslib.org/)
 
 
