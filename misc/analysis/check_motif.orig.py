@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 
 import sys
-import argparse
-
 
 
 def read_fasta(fp):
@@ -70,35 +68,11 @@ def check_telomeric_motif_sequence(sequence, telomere_motif = "TTAGGG", repeat_c
 		return 0
 
 
-parser = argparse.ArgumentParser(description='Process some integers.')
-parser.add_argument('fasta_file', metavar='fasta_file', type=str,
-                    help='Fasta file to analyze')
-parser.add_argument('--org', help='Organism of interest: human|arabidopsis|celegans|all', 
-		    choices=['human', 'arabidopsis', 'celegans', 'all'], default='human')
-args = parser.parse_args()
-
-#fasta_file = sys.argv[1]
+fasta_file = sys.argv[1]
 repeat_count = 4
 
-# Motifs for different organisms
-motif_collection = []
-human_motifs = ["TTAGGG", "CCCTAA", "TTAAAA", "TTTTAA", "CTTCTT", "AAGAAG", "CCCTGG", "CCAGGG"]
-arabidopsis_motifs = ["TTTAGGG", "CCCTAAA", "CCTGGG", "CCAGGG"]
-celegans_motifs = ["TTAGGC", "GCCTAA"]
-all_motifs = ["TTAGGG", "CCCTAA", "TTAAAA", "TTTTAA", "CTTCTT", "AAGAAG", "CCCTGG", "CCAGGG",
-	      "TTTAGGG", "CCCTAAA", "TTAGGC", "GCCTAA"]
 
-if args.org == "human":
-	motif_collection = human_motifs
-elif args.org == "arabidopsis":
-	motif_collection = arabidopsis_motifs
-elif args.org == "celegans":
-	motif_collection = celegans_motifs
-elif args.org == "all":
-	motif_collection = all_motifs
-
-
-
+motif_collection = ["TTAGGG", "CCCTAA", "TTAAAA", "TTTTAA", "CTTCTT", "AAGAAG", "CCCTGG", "CCAGGG"]
 
 fasta = open(fasta_file, "r")
 fasta_generator = read_fasta(fasta)
