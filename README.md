@@ -16,6 +16,14 @@ To apply the bonito basecalling model, you will need the following software in y
 4. Bonito basecaller (current pipeline was tested on Bonito v0.3.5 which can be obtained from https://github.com/nanoporetech/bonito/releases). Please also ensure that the Bonito basecaller is working before applying this pipeline as Bonito is dependent on a number of other packages (e.g. CuPy, CUDA, etc.). Please refer to the Bonito repository for detailed information on the required packages.
 5. Samtools (http://www.htslib.org/)
 
+### Applying full pipeline
+To apply the full pipeline in a single step, one can use the command
+```
+perl 1_apply_model/fullpipeline.pl <input_fasta> <fast5_directory_of_nanopore_signal_data> <output_label>
+```
+
+Otherwise, the pipeline can also be applied by following each of the following steps.
+
 
 ### 1. bonito_basecalling_model
 This directory contains the tuned basecalling model for bonito. The model can be downloaded from the following path (https://zenodo.org/record/5819148/files/chm13_nanopore_trained_run225.zip?download=1) and unzip into this folder.
