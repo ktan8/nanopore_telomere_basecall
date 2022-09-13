@@ -22,9 +22,10 @@ To apply the full pipeline in a single step, one can use the command
 perl 1_apply_model/fullpipeline.pl <input_fasta> <fast5_directory_of_nanopore_signal_data> <output_label>
 ```
 
-<input_fasta> - Pre-called fasta files that you can generate using either Guppy or the Bonito basecaller. (This pipeline only re-basecalls the telomeric reads. So you will still need to generate fasta files from your raw fast5 files using either Guppy or the default Bonito caller)
-<fast5_directory_of_nanopore_signal_data> - This specifies the folder where your fast5 files are. The required fast5 files to re-basecall are extracted from this directory
-<output_label> - Any name or output path that you so desire.
+A description of these arguments are as follows:
+1. <input_fasta> - Pre-called fasta files that you can generate using either Guppy or the Bonito basecaller. (This pipeline only re-basecalls the telomeric reads. So you will still need to generate fasta files from your raw fast5 files using either Guppy or the default Bonito caller)
+2. <fast5_directory_of_nanopore_signal_data> - This specifies the folder where your fast5 files are. The required fast5 files to re-basecall are extracted from this directory
+3. <output_label> - Any name or output path that you so desire.
 
 
 Otherwise, the pipeline can also be applied by following each of the following steps.
