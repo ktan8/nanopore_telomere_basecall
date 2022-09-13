@@ -22,6 +22,11 @@ To apply the full pipeline in a single step, one can use the command
 perl 1_apply_model/fullpipeline.pl <input_fasta> <fast5_directory_of_nanopore_signal_data> <output_label>
 ```
 
+<input_fasta> - Pre-called fasta files that you can generate using either Guppy or the Bonito basecaller. (This pipeline only re-basecalls the telomeric reads. So you will still need to generate fasta files from your raw fast5 files using either Guppy or the default Bonito caller)
+<fast5_directory_of_nanopore_signal_data> - This specifies the folder where your fast5 files are. The required fast5 files to re-basecall are extracted from this directory
+<output_label> - Any name or output path that you so desire.
+
+
 Otherwise, the pipeline can also be applied by following each of the following steps.
 
 
@@ -83,6 +88,12 @@ To apply this step, run the following command:
 ```
 perl main.pl <original_basecalling_model> <training_data_directory> <tuned_model_name>
 ```
+
+
+## FAQ
+1. Why are strange non-telomeric sequences being generated after applying the pipeline?
+
+Note that the tuned bonito basecalling model that we have published is compatible with Bonito v0.3.5, but not with higher versions of Bonito (e.g. v0.5 and above). Please check that your are using the correct version of Bonito. I will also be updating the tuned model for later versions of Bonito in the future after I have properly evaluated them.
 
 
 ## Contact
