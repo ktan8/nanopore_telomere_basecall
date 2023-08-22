@@ -8,6 +8,28 @@ This package contains of two parts. The first part is the pipeline for retrainin
 
 There are a series of four steps to apply the tuned basecalling model to the telomeric nanopore reads. These steps and the corresponding scripts can be found in the following directories.
 
+### Dependencies
+To apply the bonito basecalling model, you will need the following software in your environment.
+1. Python
+2. Perl
+3. fast5_subset (included as part of the ont_fast5_api package at https://github.com/nanoporetech/ont_fast5_api)
+4. Bonito basecaller (current pipeline was tested on Bonito v0.3.5 which can be obtained from https://github.com/nanoporetech/bonito/releases). Please also ensure that the Bonito basecaller is working before applying this pipeline as Bonito is dependent on a number of other packages (e.g. CuPy, CUDA, etc.). Please refer to the Bonito repository for detailed information on the required packages.
+5. Samtools (http://www.htslib.org/)
+
+### Applying full pipeline
+To apply the full pipeline in a single step, one can use the command
+```
+perl 1_apply_model/fullpipeline.pl <input_fasta> <fast5_directory_of_nanopore_signal_data> <output_label>
+```
+
+A description of these arguments are as follows:
+1. <input_fasta> - Pre-called fasta files that you can generate using either Guppy or the Bonito basecaller. (This pipeline only re-basecalls the telomeric reads. So you will still need to generate fasta files from your raw fast5 files using either Guppy or the default Bonito caller)
+2. <fast5_directory_of_nanopore_signal_data> - This specifies the folder where your fast5 files are. The required fast5 files to re-basecall are extracted from this directory
+3. <output_label> - Any name or output path that you so desire.
+
+
+Otherwise, the pipeline can also be applied by following each of the following steps.
+
 
 ### 1. bonito_basecalling_model
 This directory contains the tuned basecalling model for bonito. The model can be downloaded from the following path (https://zenodo.org/record/5819148/files/chm13_nanopore_trained_run225.zip?download=1) and unzip into this folder.
@@ -67,6 +89,12 @@ To apply this step, run the following command:
 ```
 perl main.pl <original_basecalling_model> <training_data_directory> <tuned_model_name>
 ```
+
+
+## FAQ
+1. Why are strange non-telomeric sequences being generated after applying the pipeline?
+
+Note that the tuned bonito basecalling model that we have published is compatible with Bonito v0.3.5, but not with higher versions of Bonito (e.g. v0.5 and above). Please check that your are using the correct version of Bonito. I will also be updating the tuned model for later versions of Bonito in the future after I have properly evaluated them.
 
 
 ## Contact
