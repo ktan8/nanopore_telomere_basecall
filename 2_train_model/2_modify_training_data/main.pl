@@ -8,12 +8,11 @@ my $dirname     = dirname(__FILE__);
 my $training_data_label = $ARGV[0];
 
 
-
-# Modify the training data with the new ground truth
-system("perl $dirname/modify_training_with_ground.working.pl $training_data_label.chunk.map_rawfasta.bam $training_data_label.raw.fasta $training_data_label.raw.groundtruth.txt > $training_data_label.chunk.groundtruth.txt");
-
 # Get ground truth with right strand training data
 system("samtools view -f0 -b $training_data_label.chunk.map_rawfasta.bam > $training_data_label.chunk.map_rawfasta.rightstrand.bam");
+
+# Modify the training data with the new ground truth
+system("perl $dirname/modify_training_with_ground.working.pl $training_data_label.chunk.map_rawfasta.rightstrand.bam $training_data_label.raw.fasta $training_data_label.raw.groundtruth.txt > $training_data_label.chunk.groundtruth.rightstrand.txt");
 
 # Clean ground truth data
 system("perl $dirname/clean.chunk_groundtruth.pl $training_data_label.chunk.groundtruth.rightstrand.txt > $training_data_label.chunk.groundtruth.rightstrand.clean.txt");
